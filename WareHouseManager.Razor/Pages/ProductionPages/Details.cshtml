@@ -1,0 +1,34 @@
+﻿@page
+@model WareHouseManager.Razor.Pages.ProductionPages.DetailsModel
+@{
+}
+<div class="row">
+    <div class="col-md-6 mx-auto 0">
+        <h3>Production Details</h3>
+            @if (Model.ProductionDto!=null)
+        {
+            <div class="card text-center">
+                <p class="card-title mt-4"> Name : @Model.ProductionDto.ProductName</p>
+                <p> Batch : @Model.ProductionDto.Batch</p>
+
+                <p> Quantity : @Model.ProductionDto.Quantity</p>
+                <p> Tank : @Model.ProductionDto.Tank</p>
+                <p> Final Level : @Model.ProductionDto.FinalLevel</p>
+                <p> User Create : @Model.ProductionDto.UserNameCreation</p>
+                <p> Creation Date : @Model.ProductionDto.CreationTime</p>
+                <p> Comments : @Model.ProductionDto.Comments</p>
+                <p> User Modification : @Model.ProductionDto.UserNameModification</p>
+                <p> Modification Date : @Model.ProductionDto.ModificacionTime</p>
+                <div class="form-group">
+                    <a href="javascript:history.back()" class="btn btn-success my-5">Go Back</a>
+                    <a asp-page="/ProductionPages/Edit" class="btn btn-secondary my-5" asp-route-id="@Model.ProductionDto.Id">Edit</a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <h3 class="text-danger text-center">@Model.Messages</h3>
+        }
+  
+    </div>
+</div>

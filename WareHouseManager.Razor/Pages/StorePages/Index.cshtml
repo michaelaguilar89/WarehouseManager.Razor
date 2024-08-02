@@ -1,0 +1,89 @@
+﻿@page
+@model WareHouseManager.Razor.Pages.StorePages.IndexModel
+
+@{
+}
+<div class="container">
+    <div class="row">
+        <div class="row ">
+            <div class="col-md-6 mx-auto 0">
+                <h3 class="text-center text-primary">List Of Products On Storage (  )</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 mx-auto 0">
+                @if (Model.Messages != null)
+                {
+                    <div class="text-danger">Status : @Model.Messages</div>
+                }
+                <div class="searchData mx-auto 0">
+                    <form asp-page="/StorePages/Index" method="get">
+                        <p>
+                            <input type="date" name="searchDateValue" value="@Model.searchDate" />
+                            <input type="text" placeholder="Search...." name="SearchString" value="@Model.search" />
+                            <input type="submit" value="Search" class="btn btn-primary" /> |
+                            <a asp-page="/StorePages/Index">Back to full list</a>
+                        </p>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+       
+      
+        <div class="col-md-6 text-center">
+
+           
+          
+           
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Batch</th>
+                        <th scope="col">Total Quantity</th>
+                        <th scope="col">Actual Quantity</th>
+                        <th scope="col">Creation Time</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">User Create</th>
+                        <th scope="col">Modification Time</th>
+                        <th scope="col">User Modification</th>
+                        <th scope="col">Comments</th>
+                        <th scope="col">Actions</th>
+                        <th scope="col"><a asp-page="/StorePages/Create" class="btn btn-primary">New</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.result == null)
+                    {
+                        <div class="text-danger">Data Not Found!</div>
+                    }
+                    else
+                        @foreach (var i in Model.result)
+                        {
+                            <tr>
+                                <th scope="row">@i.ProductName</th>
+                                <td>@i.Batch</td>
+                                <td>@i.TotalQuantity</td>
+                                <td>@i.ActualQuantity</td>
+                                <td>@i.CreationTime</td>
+                                <td>@i.Description</td>
+                                <td>@i.UserNameCreation</td>
+                                <td>@i.ModificationAt</td>
+                                <td>@i.UserNameModification</td>
+                                <td>@i.Comments</td>
+                                <td>
+                                    <a asp-page="/StorePages/Details" asp-route-id="@i.Id">Details</a>
+                                    <a asp-page="/StorePages/Edit" asp-route-id="@i.Id">Edit</a>
+                                </td>
+                            </tr>
+                        }
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

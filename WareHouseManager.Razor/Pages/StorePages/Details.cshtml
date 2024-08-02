@@ -1,0 +1,37 @@
+﻿@page
+@model WareHouseManager.Razor.Pages.StorePages.DetailsModel
+@{
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto 0">
+            <h2 class="text-center text-primary mb-3">Details</h2>
+            @if (Model.Messages != null)
+            {
+                <div class="text-danger">Status : @Model.Messages</div>
+            }
+            <div class=card>
+                <div class="card-body text-center">
+                    <h3>Name :  @Model.Store.ProductName</h3>
+                    <p> Batch : @Model.Store.Batch</p>
+                    <p> Total Quantity : @Model.Store.TotalQuantity</p>
+                    <p> Actual Quantity : @Model.Store.ActualQuantity</p>
+
+                    <p> CreationTime : @Model.Store.CreationTime</p>
+                    <p> User Creation : @Model.Store.UserNameCreation</p>
+                    <p> ModificacionTime : @Model.Store.ModificacionTime</p>
+                    <p> UserIdModification : @Model.Store.UserNameModification</p>
+                    <p> Description : @Model.Store.Description</p>
+                    <p> Comments : @Model.Store.Comments</p>
+
+                    <div class="text-center">
+                        <a href="javascript:history.back()"  class="btn btn-success mt-3">Go Back</a>
+                        <a asp-page="/StorePages/Edit" class="btn btn-secondary mx-3 mt-3" asp-route-id="@Model.Store.Id">Edit</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

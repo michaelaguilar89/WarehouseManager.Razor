@@ -1,0 +1,76 @@
+﻿@page
+@model WareHouseManager.Razor.Pages.ProductionPages.IndexModel
+@{
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mx-auto 0">
+            <h3 class="text-center">list of Production  </h3>
+            @if (Model.list != null)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Creation Date</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Batch</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Tank</th>
+                            <th scope="col">Final Level</th>
+                            <th scope="col">Creation User</th>
+                            <th scope="col">Modification Date</th>
+                            <th scope="col">Modification User</th>
+                            <th scope="col">Comments</th>
+                            <th scope="col">Options</th>
+                            <th scope="col">
+                                <a href="/ProductionPages/Create" class="btn btn-primary">New</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.list != null)
+                        {
+                            @foreach (var item in Model.list)
+                            {
+                                <tr>
+                                    <td>@item.CreationTime</td>
+                                    <th scope="row">@item.ProductName</th>
+                                    <td>
+                                        <a asp-page="/StorePages/Details" asp-route-id="@item.StoreId">
+                                            @item.Batch
+                                        </a>
+                                    </td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Tank</td>
+                                    <td>@item.FinalLevel</td>
+                                    <td>@item.UserNameCreation</td>
+                                    <td>@item.ModificacionTime</td>
+                                    <td>@item.UserNameModification</td>
+
+                                    <td>@item.Comments</td>
+                                    <td>
+                                        <a asp-page="/ProductionPages/Details" asp-route-id="@item.Id">Details</a>
+                                        <a asp-page="/ProductionPages/Edit" asp-route-id="@item.Id">Edit</a>
+                                    </td>
+                                </tr>
+
+                            }
+                            <!--End of Foreach-->
+                        }<!--End of If-->
+
+
+
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h3 class="text-center text-danger">Data not found</h3>
+                <a href="/ProductionPages/Index">Try again</a>
+            }
+
+            
+        </div>
+    </div>
+</div>
