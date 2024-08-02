@@ -31,12 +31,27 @@ namespace WareHouseManager.Razor.Pages.ProductionPages
         [BindProperty]
         public List<ResultProductionDto> list { get; set; } = default;
         public string Messages { get; set; }
-        public async Task OnGetAsync()
+
+        [BindProperty(SupportsGet = true)]
+        public string? search { get; set; }
+
+        public DateTime? searchDate { get; set; }
+
+        public async Task OnGetAsync(string? searchString, DateTime? searchDateValue)
         {
             try
             {
-                list = await _productionService.GetProductions();
-                Console.WriteLine("Date : " + DateTime.Now + "Consulta Ok en production index "+list.ToJson());
+                if (searchString!=null)
+                {
+                    search = searchString;
+                    list = await _productionService.GetProductionsByNameOrBatch(search);
+                }
+                else
+                {
+                    list = await _productionService.GetProductions();
+                    Console.WriteLine("Date : " + DateTime.Now + "Consulta Ok en production index " + list.ToJson());
+
+                }
 
             }
             catch (Exception e)

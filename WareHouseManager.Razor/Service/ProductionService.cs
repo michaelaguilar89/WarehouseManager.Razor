@@ -93,6 +93,50 @@ namespace WareHouseManager.Razor.Service
             }
 
         }
+
+        public async Task<List<ResultProductionDto>> GetProductionsByNameOrBatch(string? search)
+        {
+            try
+            {
+                if (search!=null)
+                {
+                    var prod = await _context.Productions
+                    .Include(user => user.UserCreation)//incluir el username create
+                    .Include(user => user.UserModification)//incluir el username modification
+                    .Where(x => x.Batch.ToLower().Contains(search)||x.ProductName.ToLower().Contains(search))
+                    .Select(p => new ResultProductionDto
+                    {
+                        Id = p.Id,
+                        ProductName = p.ProductName,
+                        Batch = p.Batch,
+                        StoreId = p.StoreId,
+                        Quantity = p.Quantity,
+                        Tank = p.Tank,
+                        FinalLevel = p.FinalLevel,
+                        CreationTime = p.CreationTime,
+                        ModificacionTime = p.ModificacionTime,
+                        Comments = p.Comments,
+                        UserIdCreation = p.UserIdCreation,
+                        UserNameCreation = p.UserCreation.UserName != null ? p.UserCreation.UserName : "Unknown",
+                        UserIdModification = p.UserIdModification != null ? p.UserCreation.UserName : "Unknown",
+                        UserNameModification = p.UserModification.UserName != null ? p.UserModification.UserName : "Unknown" // Manejo de potencial null,
+
+                    }).ToListAsync();
+                    
+                    return prod;
+                }
+                return null;
+                
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("Date : " + DateTime.Now + " Error : " + e.Message);
+                return null;
+            }
+
+        }
         public async Task<List<ResultProductionDto>> GetProductionsByDateDescending()
         {
             try

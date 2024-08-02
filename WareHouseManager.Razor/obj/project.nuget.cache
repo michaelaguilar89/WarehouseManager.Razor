@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "85Q8//w3xCE=",
+  "dgSpecHash": "PGKueEnpWDc=",
   "success": true,
   "projectFilePath": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\WareHouseManager.Razor.csproj",
   "expectedPackageFiles": [
@@ -117,6 +117,7 @@
     "C:\\Users\\mchla\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\mchla\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\mchla\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\mchla\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.20.1\\microsoft.visualstudio.azure.containers.tools.targets.1.20.1.nupkg.sha512",
     "C:\\Users\\mchla\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\8.0.3\\microsoft.visualstudio.web.codegeneration.8.0.3.nupkg.sha512",
     "C:\\Users\\mchla\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\8.0.3\\microsoft.visualstudio.web.codegeneration.core.8.0.3.nupkg.sha512",
     "C:\\Users\\mchla\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\8.0.3\\microsoft.visualstudio.web.codegeneration.design.8.0.3.nupkg.sha512",
