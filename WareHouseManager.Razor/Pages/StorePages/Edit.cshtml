@@ -19,17 +19,17 @@
            <input asp-for="StoreDto.Id" type="hidden" />
            <div class="form-group">
                <label asp-for="StoreDto.ProductName" class="control-label"></label>
-               <input asp-for="StoreDto.ProductName" readonly="true" class="form-control" />
+               <input asp-for="StoreDto.ProductName"  class="form-control" />
                <span asp-validation-for="StoreDto.ProductName" class="text-danger"></span>
            </div>
             <div class="form-group">
                 <label asp-for="StoreDto.Batch" class="control-label"></label>
-                <input asp-for="StoreDto.Batch" readonly="true" class="form-control" />
+                <input asp-for="StoreDto.Batch"  class="form-control" />
                 <span asp-validation-for="StoreDto.Batch" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StoreDto.TotalQuantity" class="control-label"></label>
-                <input asp-for="StoreDto.TotalQuantity" type="number" class="form-control" />
+                <input asp-for="StoreDto.TotalQuantity" readonly="true" type="number" class="form-control" />
                 <span asp-validation-for="StoreDto.TotalQuantity" class="text-danger"></span>
             </div>
             <div class="form-group">

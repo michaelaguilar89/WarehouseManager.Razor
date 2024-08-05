@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 using WareHouseManager.Razor.Data;
+using WareHouseManager.Razor.DataProtection;
 using WareHouseManager.Razor.Models;
 using WareHouseManager.Razor.Service;
 
@@ -44,13 +45,22 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
  * */
+
+// Configurar la sección de claves de protección de datos
+builder.Services.Configure<DataProtectionKeys>(
+    builder.Configuration.GetSection("DataProtection:Keys"));
+
 //Registro de servicios
+builder.Services.AddDataProtection();
 builder.Services.AddScoped<UserManager<ApplicationUser>>();
 builder.Services.AddScoped<SignInManager<ApplicationUser>>();
 builder.Services.AddScoped<RoleManager<IdentityRole>>();
 builder.Services.AddScoped<StoreService>();
 builder.Services.AddScoped<ProductionService>();
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<EncryptedSevice>();
+
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

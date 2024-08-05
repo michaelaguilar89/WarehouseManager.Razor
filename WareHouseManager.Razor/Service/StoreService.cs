@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using Microsoft.AspNetCore.DataProtection;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 
@@ -13,11 +14,15 @@ namespace WareHouseManager.Razor.Service
     public class StoreService
     {
         private readonly ApplicationDbContext _context;
+        private readonly EncryptedSevice encryptedSevice;
 
-        public StoreService(ApplicationDbContext context)
+        public StoreService(ApplicationDbContext context,EncryptedSevice encryptedSevice)
         {
-            _context = context;
+             _context = context;
+            this.encryptedSevice = encryptedSevice;
         }
+
+       
         public async Task<string> UpdateStore(updateStoreDto storeDto, string secret)
         {
             try
@@ -34,8 +39,7 @@ namespace WareHouseManager.Razor.Service
                     {
 
 
-                        actualData.ProductName = storeDto.ProductName;
-                        actualData.Batch = storeDto.Batch;
+                       
                         switch (storeDto.operation)
                         {
                             case "+":
@@ -53,13 +57,18 @@ namespace WareHouseManager.Razor.Service
                             default:
                                 mesage = "Invaid Operation";
                              break;
-                        }
 
+                        }
+                        actualData.ProductName= this.encryptedSevice.Protect(storeDto.ProductName);
+                        actualData.ProductNameHash = this.encryptedSevice.HashString(storeDto.ProductName);
+                       
+                        actualData.BatchHash=this.encryptedSevice.HashString(storeDto.Batch);
+                        actualData.Batch = this.encryptedSevice.Protect(storeDto.Batch);
                         actualData.TotalQuantity = totalQuantity;
                         actualData.ActualQuantity = ActualQuantity;
                         actualData.CreationTime = DateTime.SpecifyKind(storeDto.CreationTime, DateTimeKind.Utc);
-                        actualData.Description = storeDto.Description;
-                        actualData.Comments = storeDto.Comments;
+                        actualData.Description = this.encryptedSevice.Protect(storeDto.Description);
+                        actualData.Comments = this.encryptedSevice.Protect(storeDto.Comments);
                         actualData.UserIdCreation = storeDto.UserIdCreation;
                         actualData.ModificationAt = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
                         actualData.UserIdModification = secret;
@@ -84,7 +93,9 @@ namespace WareHouseManager.Razor.Service
             try
             {
                 Store store = new();
+                store.ProductNameHash = this.encryptedSevice.HashString(storeDto.ProductName);
                 store.ProductName = storeDto.ProductName;
+                store.BatchHash = this.encryptedSevice.HashString(storeDto.Batch);
                 store.Batch = storeDto.Batch;
                 store.TotalQuantity = storeDto.Quantity;
                 store.ActualQuantity = storeDto.Quantity;
@@ -107,22 +118,23 @@ namespace WareHouseManager.Razor.Service
 
         public async Task<List<ResultStoreDto>> getStoresByNameOrBatch(string search)
         {
+            var searchingHash = this.encryptedSevice.HashString(search);
+
                 var stores = await _context.Stores
       .Include(store => store.UserCreation) // Incluir el usuario de creación
       .Include(store => store.UserModification) // Incluir el usuario de modificación
-      .Where(z=>z.ProductName.ToLower().Contains(search.ToLower())||
-             z.Batch.ToLower().Contains(search.ToLower()))
+      .Where(z=>z.ProductNameHash.Equals(searchingHash) || z.BatchHash.Equals(searchingHash))
       .Select(store => new ResultStoreDto
       {
           Id = store.Id,
-          ProductName = store.ProductName,
-          Batch = store.Batch,
+          ProductName = this.encryptedSevice.UnProtect(store.ProductName),
+          Batch =this.encryptedSevice.UnProtect( store.Batch),
           TotalQuantity = store.TotalQuantity,
           ActualQuantity = store.ActualQuantity,
           CreationTime = store.CreationTime,
           ModificationAt = store.ModificationAt,
-          Description = store.Description,
-          Comments = store.Comments,
+          Description =this.encryptedSevice.UnProtect( store.Description),
+          Comments = this.encryptedSevice.UnProtect( store.Comments),
           UserIdCreation = store.UserIdCreation,
           UserNameCreation = store.UserCreation != null ? store.UserCreation.UserName : "Unknown", // Manejo de potencial null
           UserIdModification = store.UserIdModification,
@@ -226,14 +238,14 @@ namespace WareHouseManager.Razor.Service
       .Select(store => new ResultStoreDto
       {
           Id = store.Id,
-          ProductName = store.ProductName,
-          Batch = store.Batch,
+          ProductName =this.encryptedSevice.UnProtect( store.ProductName),
+          Batch = this.encryptedSevice.UnProtect(store.Batch),
           TotalQuantity = store.TotalQuantity,
           ActualQuantity = store.ActualQuantity,
           CreationTime = store.CreationTime,
           ModificationAt = store.ModificationAt, 
-          Description = store.Description,
-          Comments = store.Comments,
+          Description = this.encryptedSevice.UnProtect(store.Description),
+          Comments = this.encryptedSevice.UnProtect(store.Comments),
           UserIdCreation = store.UserIdCreation,
           UserNameCreation = store.UserCreation != null ? store.UserCreation.UserName : "Unknown", // Manejo de potencial null
           UserIdModification = store.UserIdModification,
@@ -269,16 +281,16 @@ namespace WareHouseManager.Razor.Service
          .Select(store => new updateStoreDto
          {
              Id = store.Id,
-             ProductName = store.ProductName,
-             Batch = store.Batch,
+             ProductName = this.encryptedSevice.UnProtect(store.ProductName),
+             Batch = this.encryptedSevice.UnProtect(store.Batch),
              TotalQuantity = store.TotalQuantity,
              ActualQuantity = store.ActualQuantity,
              operation = "+",
              UpdateQuantity = 0,
              CreationTime = store.CreationTime,
              ModificacionTime = store.ModificationAt,
-             Description = store.Description,
-             Comments = store.Comments,
+             Description = this.encryptedSevice.UnProtect(store.Description),
+             Comments = this.encryptedSevice.UnProtect(store.Comments),
              UserIdCreation = store.UserIdCreation,
              UserNameCreation = store.UserCreation != null ? store.UserCreation.UserName : "Unknown",
              UserIdModification = store.UserIdModification,
@@ -298,6 +310,7 @@ namespace WareHouseManager.Razor.Service
                 return null;
             }
                 var st = await _context.Stores.FindAsync(id);
+                
                 return st;
                        
         }

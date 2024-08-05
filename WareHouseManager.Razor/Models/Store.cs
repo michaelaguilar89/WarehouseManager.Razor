@@ -7,10 +7,15 @@ namespace WareHouseManager.Razor.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required, MaxLength(50)]
+        [Required]
         public string ProductName { get; set; }
-        [Required, MaxLength(30)]
+        [Required]
+        public string ProductNameHash { get; set; } // Campo adicional para el hash del nombre
+        [Required]
         public string Batch { get; set; }
+        [Required]
+        public string BatchHash { get; set; } // Campo adicional para el hash del nombre
+
         [Required, Column(TypeName = "decimal(10,2)")]
         public decimal TotalQuantity { get; set; }
         [Required, Column(TypeName = "decimal(10,2)")]
@@ -19,9 +24,9 @@ namespace WareHouseManager.Razor.Models
         public DateTime CreationTime { get; set; }
         
          
-        [Required, MaxLength(150)]
+        [Required]
         public string Description { get; set; }
-        [Required, MaxLength(150)]
+        [Required]
         public string Comments { get; set; }
         public DateTime? ModificationAt { get; set; }
         [Required]

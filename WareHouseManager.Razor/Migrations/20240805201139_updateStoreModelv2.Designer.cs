@@ -12,8 +12,8 @@ using WareHouseManager.Razor.Data;
 namespace WareHouseManager.Razor.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240802044240_Initial")]
-    partial class Initial
+    [Migration("20240805201139_updateStoreModelv2")]
+    partial class updateStoreModelv2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -240,29 +240,33 @@ namespace WareHouseManager.Razor.Migrations
 
                     b.Property<string>("Batch")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("character varying(30)");
+                        .HasColumnType("text");
+
+                    b.Property<string>("BatchHash")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Comments")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("character varying(150)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("FinalLevel")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("character varying(10)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("ModificacionTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProductNameHash")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<decimal>("Quantity")
                         .HasColumnType("decimal(10,2)");
@@ -272,8 +276,7 @@ namespace WareHouseManager.Razor.Migrations
 
                     b.Property<string>("Tank")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("character varying(10)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserIdCreation")
                         .IsRequired()
@@ -306,29 +309,33 @@ namespace WareHouseManager.Razor.Migrations
 
                     b.Property<string>("Batch")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("character varying(30)");
+                        .HasColumnType("text");
+
+                    b.Property<string>("BatchHash")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Comments")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("character varying(150)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("character varying(150)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("ModificationAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProductNameHash")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<decimal>("TotalQuantity")
                         .HasColumnType("decimal(10,2)");

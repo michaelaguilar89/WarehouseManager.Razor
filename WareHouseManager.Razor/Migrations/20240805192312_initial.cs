@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace WareHouseManager.Razor.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -167,7 +167,9 @@ namespace WareHouseManager.Razor.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ProductName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    ProductNameHash = table.Column<string>(type: "text", nullable: false),
                     Batch = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    BatchHash = table.Column<string>(type: "text", nullable: false),
                     TotalQuantity = table.Column<decimal>(type: "numeric(10,2)", nullable: false),
                     ActualQuantity = table.Column<decimal>(type: "numeric(10,2)", nullable: false),
                     CreationTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -200,7 +202,9 @@ namespace WareHouseManager.Razor.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ProductName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    ProductNameHash = table.Column<string>(type: "text", nullable: false),
                     Batch = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    BatchHash = table.Column<string>(type: "text", nullable: false),
                     StoreId = table.Column<int>(type: "integer", nullable: false),
                     Quantity = table.Column<decimal>(type: "numeric(10,2)", nullable: false),
                     Tank = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),

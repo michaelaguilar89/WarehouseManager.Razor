@@ -10,10 +10,12 @@ namespace WareHouseManager.Razor.Service
     public class ProductionService
     {
         private readonly ApplicationDbContext _context;
+        private readonly EncryptedSevice encryptedSevice;
 
-        public ProductionService(ApplicationDbContext context)
+        public ProductionService(ApplicationDbContext context, EncryptedSevice encryptedSevice)
         {
             _context = context;
+            this.encryptedSevice = encryptedSevice;
         }
 
 
@@ -29,15 +31,15 @@ namespace WareHouseManager.Razor.Service
                     .Select(p => new ResultProductionDto
                     {
                         Id = p.Id,
-                        ProductName = p.ProductName,
-                        Batch = p.Batch,
+                        ProductName = this.encryptedSevice.UnProtect(p.ProductName),
+                        Batch = this.encryptedSevice.UnProtect(p.Batch),
                         StoreId = p.StoreId,
                         Quantity = p.Quantity,
-                        Tank = p.Tank,
-                        FinalLevel = p.FinalLevel,
+                        Tank = this.encryptedSevice.UnProtect(p.Tank),
+                        FinalLevel = this.encryptedSevice.UnProtect(p.FinalLevel),
                         CreationTime = p.CreationTime,
                         ModificacionTime = p.ModificacionTime,
-                        Comments = p.Comments,
+                        Comments = this.encryptedSevice.UnProtect(p.Comments),
                         UserIdCreation = p.UserIdCreation,
                         UserNameCreation = p.UserCreation.UserName != null ? p.UserCreation.UserName : "Unknown",
                         UserIdModification = p.UserIdModification != null ? p.UserCreation.UserName : "Unknown",
@@ -66,15 +68,16 @@ namespace WareHouseManager.Razor.Service
                     .Select(p => new ResultProductionDto
                     {
                         Id = p.Id,
-                        ProductName = p.ProductName,
-                        Batch = p.Batch,
+
+                        ProductName =this.encryptedSevice.UnProtect( p.ProductName),
+                        Batch = this.encryptedSevice.UnProtect(p.Batch),
                         StoreId = p.StoreId,
                         Quantity = p.Quantity,
-                        Tank = p.Tank,
-                        FinalLevel = p.FinalLevel,
+                        Tank = this.encryptedSevice.UnProtect(p.Tank),
+                        FinalLevel = this.encryptedSevice.UnProtect(p.FinalLevel),
                         CreationTime = p.CreationTime,
                         ModificacionTime = p.ModificacionTime,
-                        Comments = p.Comments,
+                        Comments = this.encryptedSevice.UnProtect(p.Comments),
                         UserIdCreation = p.UserIdCreation,
                         UserNameCreation = p.UserCreation.UserName != null ? p.UserCreation.UserName : "Unknown",
                         UserIdModification = p.UserIdModification != null ? p.UserCreation.UserName : "Unknown",
@@ -100,23 +103,24 @@ namespace WareHouseManager.Razor.Service
             {
                 if (search!=null)
                 {
+                    var searchingHash = this.encryptedSevice.HashString(search);
                     var prod = await _context.Productions
                     .Include(user => user.UserCreation)//incluir el username create
                     .Include(user => user.UserModification)//incluir el username modification                   
-                    .Where(z => z.ProductName.ToLower().Contains(search.ToLower()) ||
-             z.Batch.ToLower().Contains(search.ToLower()))
+                    .Where(z => z.ProductNameHash.Equals(searchingHash) ||
+                                z.BatchHash.Equals(searchingHash))
                     .Select(p => new ResultProductionDto
                     {
                         Id = p.Id,
-                        ProductName = p.ProductName,
-                        Batch = p.Batch,
+                        ProductName = this.encryptedSevice.UnProtect(p.ProductName),
+                        Batch = this.encryptedSevice.UnProtect(p.Batch),
                         StoreId = p.StoreId,
                         Quantity = p.Quantity,
-                        Tank = p.Tank,
-                        FinalLevel = p.FinalLevel,
+                        Tank = this.encryptedSevice.UnProtect(p.Tank),
+                        FinalLevel = this.encryptedSevice.UnProtect(p.FinalLevel),
                         CreationTime = p.CreationTime,
                         ModificacionTime = p.ModificacionTime,
-                        Comments = p.Comments,
+                        Comments = this.encryptedSevice.UnProtect(p.Comments),
                         UserIdCreation = p.UserIdCreation,
                         UserNameCreation = p.UserCreation.UserName != null ? p.UserCreation.UserName : "Unknown",
                         UserIdModification = p.UserIdModification != null ? p.UserCreation.UserName : "Unknown",
@@ -149,16 +153,16 @@ namespace WareHouseManager.Razor.Service
                     .Select(p => new ResultProductionDto
                     {
                         Id = p.Id,
-                        ProductName = p.ProductName,
-                        Batch = p.Batch,
+                        ProductName = this.encryptedSevice.UnProtect(p.ProductName),
+                        Batch = this.encryptedSevice.UnProtect(p.Batch),
                         StoreId = p.StoreId,
                         Quantity = p.Quantity,
-                        Tank = p.Tank,
-                        FinalLevel = p.FinalLevel,
+                        Tank = this.encryptedSevice.UnProtect(p.Tank),
+                        FinalLevel = this.encryptedSevice.UnProtect(p.FinalLevel),
                         CreationTime = p.CreationTime,
                         ModificacionTime = p.ModificacionTime,
-                        Comments = p.Comments,
-                        UserIdCreation = p.UserIdCreation,
+                        Comments = this.encryptedSevice.UnProtect(p.Comments),
+                        UserIdCreation = this.encryptedSevice.UnProtect(p.UserIdCreation),
                         UserNameCreation = p.UserCreation.UserName != null ? p.UserCreation.UserName : "Unknown",
                         UserIdModification = p.UserIdModification != null ? p.UserCreation.UserName : "Unknown",
                         UserNameModification = p.UserModification.UserName != null ? p.UserModification.UserName : "Unknown" // Manejo de potencial null,
@@ -190,16 +194,16 @@ namespace WareHouseManager.Razor.Service
                     .Select(p => new ResultProductionDto
                     {
                         Id = p.Id,
-                        ProductName = p.ProductName,
-                        Batch = p.Batch,
+                        ProductName = this.encryptedSevice.UnProtect(p.ProductName),
+                        Batch = this.encryptedSevice.UnProtect(p.Batch),
                         StoreId = p.StoreId,
                         Quantity = p.Quantity,
-                        Tank = p.Tank,
-                        FinalLevel = p.FinalLevel,
+                        Tank = this.encryptedSevice.UnProtect(p.Tank),
+                        FinalLevel = this.encryptedSevice.UnProtect(p.FinalLevel),
                         CreationTime = p.CreationTime,
                         ModificacionTime = p.ModificacionTime,
-                        Comments = p.Comments,
-                        UserIdCreation = p.UserIdCreation,
+                        Comments = this.encryptedSevice.UnProtect(p.Comments),
+                        UserIdCreation = this.encryptedSevice.UnProtect(p.UserIdCreation),
                         UserNameCreation = p.UserCreation.UserName != null ? p.UserCreation.UserName : "Unknown",
                         UserIdModification = p.UserIdModification != null ? p.UserCreation.UserName : "Unknown",
                         UserNameModification = p.UserModification.UserName != null ? p.UserModification.UserName : "Unknown" // Manejo de potencial null,
@@ -229,16 +233,16 @@ namespace WareHouseManager.Razor.Service
                     .Select(p => new ResultProductionDto
                     {
                         Id = p.Id,
-                        ProductName = p.ProductName,
-                        Batch = p.Batch,
+                        ProductName = this.encryptedSevice.UnProtect(p.ProductName),
+                        Batch = this.encryptedSevice.UnProtect(p.Batch),
                         StoreId = p.StoreId,
                         Quantity = p.Quantity,
-                        Tank = p.Tank,
-                        FinalLevel = p.FinalLevel,
+                        Tank = this.encryptedSevice.UnProtect(p.Tank),
+                        FinalLevel = this.encryptedSevice.UnProtect(p.FinalLevel),
                         CreationTime = p.CreationTime,
                         ModificacionTime = p.ModificacionTime,
-                        Comments = p.Comments,
-                        UserIdCreation = p.UserIdCreation,
+                        Comments = this.encryptedSevice.UnProtect(p.Comments),
+                        UserIdCreation = this.encryptedSevice.UnProtect(p.UserIdCreation),
                         UserNameCreation = p.UserCreation.UserName != null ? p.UserCreation.UserName : "Unknown",
                         UserIdModification = p.UserIdModification != null ? p.UserCreation.UserName : "Unknown",
                         UserNameModification = p.UserModification.UserName != null ? p.UserModification.UserName : "Unknown" // Manejo de potencial null,
@@ -265,23 +269,26 @@ namespace WareHouseManager.Razor.Service
             try
             {
                 string message = "0";
-
+                var HashName = this.encryptedSevice.HashString(dto.ProductName);
+                var HashBatch = this.encryptedSevice.HashString(dto.Batch);
                 // Buscar si existe un producto con el mismo nombre y lote
                 var store = await _context.Stores
-                    .Where(x => x.ProductName.ToLower().Equals(dto.ProductName.ToLower()) &&
-                            x.Batch.ToLower().Equals(dto.Batch.ToLower()))
+                    .Where(x => x.ProductNameHash.Equals(HashName) &&
+                            x.BatchHash.Equals(HashBatch))
                     .FirstOrDefaultAsync();
 
                 if (store != null)
                 {
                     Production production = new()
                     {
-                        ProductName = dto.ProductName,
-                        Batch = dto.Batch,
+                        ProductNameHash = this.encryptedSevice.HashString(dto.ProductName),
+                        ProductName = this.encryptedSevice.Protect(dto.ProductName),
+                        BatchHash = this.encryptedSevice.HashString(dto.Batch),
+                        Batch = this.encryptedSevice.Protect(dto.Batch),
                         Quantity = dto.Quantity,
-                        Tank = dto.Tank,
-                        FinalLevel = dto.FinalLevel,
-                        Comments = dto.Comments,
+                        Tank = this.encryptedSevice.Protect(dto.Tank),
+                        FinalLevel = this.encryptedSevice.Protect(dto.FinalLevel),
+                        Comments = this.encryptedSevice.Protect(dto.Comments),
                         StoreId = store.Id, // Obtener ID del record en Stores
                         CreationTime = DateTime.SpecifyKind(dto.CreationTime, DateTimeKind.Utc),
                         UserIdCreation = secret,
@@ -291,6 +298,7 @@ namespace WareHouseManager.Razor.Service
 
                     // Guardar el record de Production
                     await _context.Productions.AddAsync(production);
+
 
                     // Actualizar la cantidad en el Store
                     var quantity = store.ActualQuantity - dto.Quantity;

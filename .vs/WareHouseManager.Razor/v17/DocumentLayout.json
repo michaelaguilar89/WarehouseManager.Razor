@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\service\\storeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\service\\storeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\service\\productionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\service\\productionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\pages\\productionpages\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\pages\\productionpages\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\pages\\productionpages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\pages\\productionpages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\pages\\storepages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\pages\\storepages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\pages\\storepages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\pages\\storepages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\pages\\productionpages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\pages\\productionpages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,67 +34,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StoreService.cs",
-              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Service\\StoreService.cs",
-              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Service\\StoreService.cs",
-              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Service\\StoreService.cs",
-              "RelativeToolTip": "WareHouseManager.Razor\\Service\\StoreService.cs",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAWwHEAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T17:04:11.117Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\StorePages\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Pages\\StorePages\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\StorePages\\Index.cshtml.cs",
-              "RelativeToolTip": "WareHouseManager.Razor\\Pages\\StorePages\\Index.cshtml.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAYwFMAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T16:33:25.797Z",
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\ProductionPages\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Pages\\ProductionPages\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\ProductionPages\\Edit.cshtml",
+              "RelativeToolTip": "WareHouseManager.Razor\\Pages\\ProductionPages\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-05T21:27:57.812Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\StorePages\\Index.cshtml",
-              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Pages\\StorePages\\Index.cshtml",
-              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\StorePages\\Index.cshtml",
-              "RelativeToolTip": "WareHouseManager.Razor\\Pages\\StorePages\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAABjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-05T16:30:36.906Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\ProductionPages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "WareHouseManager.Razor\\Pages\\ProductionPages\\Index.cshtml.cs",
               "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\ProductionPages\\Index.cshtml.cs",
               "RelativeToolTip": "WareHouseManager.Razor\\Pages\\ProductionPages\\Index.cshtml.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAlwCoAAAAIAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAABwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T12:10:54.19Z",
+              "WhenOpened": "2024-08-05T21:21:11.043Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\ProductionPages\\Index.cshtml",
-              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Pages\\ProductionPages\\Index.cshtml",
-              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Pages\\ProductionPages\\Index.cshtml",
-              "RelativeToolTip": "WareHouseManager.Razor\\Pages\\ProductionPages\\Index.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAowBMAAABYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-05T12:10:43.427Z",
+              "DocumentIndex": 0,
+              "Title": "ProductionService.cs",
+              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Service\\ProductionService.cs",
+              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Service\\ProductionService.cs",
+              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Service\\ProductionService.cs",
+              "RelativeToolTip": "WareHouseManager.Razor\\Service\\ProductionService.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAAACoAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T20:48:54.58Z",
               "EditorCaption": ""
             }
           ]

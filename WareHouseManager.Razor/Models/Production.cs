@@ -8,19 +8,25 @@ namespace WareHouseManager.Razor.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required, MaxLength(50)]
+        [Required]
 
         public string ProductName { get; set; }
-        [Required, MaxLength(30)]
+        [Required]
+        public string ProductNameHash { get; set; } // Campo adicional para el hash del nombre
+
+        [Required]
         public string Batch { get; set; }
+        [Required]
+        public string BatchHash { get; set; } // Campo adicional para el hash del nombre
+
 
         [Required]
         public int StoreId { get; set; }
         [Required, Column(TypeName = "decimal(10,2)")]
         public decimal Quantity { get; set; }
-        [Required, MaxLength(10)]
+        [Required]
         public string Tank { get; set; }
-        [Required, MaxLength(10)]
+        [Required]
         public string FinalLevel { get; set; }
         [Required]
         public DateTime CreationTime { get; set; }
@@ -30,7 +36,7 @@ namespace WareHouseManager.Razor.Models
         public string UserIdCreation { get; set; }
         
         public string? UserIdModification { get; set; }
-        [MaxLength(150)]
+        [MaxLength]
         public string Comments { get; set; }
         //navigation property
         [ForeignKey("UserIdCreation")]
