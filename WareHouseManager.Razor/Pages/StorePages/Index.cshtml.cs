@@ -25,6 +25,7 @@ namespace WareHouseManager.Razor.Pages.StorePages
         public string? search { get; set; }
         [BindProperty(SupportsGet = true)]
         public int records { get; set; } = 0;
+        [BindProperty(SupportsGet = true)]
         public DateTime? searchDate { get; set; }
         public async Task<IActionResult> OnGet(string? searchString, DateTime? searchDateValue)
         {
@@ -35,6 +36,7 @@ namespace WareHouseManager.Razor.Pages.StorePages
 
                 searchDate = searchDateValue;
                 search = searchString;
+                Console.WriteLine("Store Pages -Index : searchString : " + search + ", searchDate : " + searchDate);
 
                 if (searchDate != null)
                  {

@@ -102,8 +102,9 @@ namespace WareHouseManager.Razor.Service
                 {
                     var prod = await _context.Productions
                     .Include(user => user.UserCreation)//incluir el username create
-                    .Include(user => user.UserModification)//incluir el username modification
-                    .Where(x => x.Batch.ToLower().Contains(search)||x.ProductName.ToLower().Contains(search))
+                    .Include(user => user.UserModification)//incluir el username modification                   
+                    .Where(z => z.ProductName.ToLower().Contains(search.ToLower()) ||
+             z.Batch.ToLower().Contains(search.ToLower()))
                     .Select(p => new ResultProductionDto
                     {
                         Id = p.Id,
@@ -145,6 +146,47 @@ namespace WareHouseManager.Razor.Service
                     .Include(user => user.UserCreation)//incluir el username create
                     .Include(user => user.UserModification)//incluir el username modification
                     .OrderByDescending(x=>x.CreationTime)
+                    .Select(p => new ResultProductionDto
+                    {
+                        Id = p.Id,
+                        ProductName = p.ProductName,
+                        Batch = p.Batch,
+                        StoreId = p.StoreId,
+                        Quantity = p.Quantity,
+                        Tank = p.Tank,
+                        FinalLevel = p.FinalLevel,
+                        CreationTime = p.CreationTime,
+                        ModificacionTime = p.ModificacionTime,
+                        Comments = p.Comments,
+                        UserIdCreation = p.UserIdCreation,
+                        UserNameCreation = p.UserCreation.UserName != null ? p.UserCreation.UserName : "Unknown",
+                        UserIdModification = p.UserIdModification != null ? p.UserCreation.UserName : "Unknown",
+                        UserNameModification = p.UserModification.UserName != null ? p.UserModification.UserName : "Unknown" // Manejo de potencial null,
+
+                    }).ToListAsync();
+                // await _context.DisposeAsync();
+                return prod;
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("Date : " + DateTime.Now + " Error : " + e.Message);
+                return null;
+            }
+
+        }
+
+        public async Task<List<ResultProductionDto>> GetProductionsByDate(DateTime? searchDate)
+        {
+            try
+            {
+                
+               
+                var prod = await _context.Productions
+                    .Include(user => user.UserCreation)//incluir el username create
+                    .Include(user => user.UserModification)//incluir el username modification
+                    .Where(z => z.CreationTime.Date == searchDate.GetValueOrDefault().ToUniversalTime().Date) // Comparación por rango de fecha
                     .Select(p => new ResultProductionDto
                     {
                         Id = p.Id,

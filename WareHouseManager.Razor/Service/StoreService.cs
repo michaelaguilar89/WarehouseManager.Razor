@@ -165,18 +165,12 @@ namespace WareHouseManager.Razor.Service
         }
 
         public async Task<List<ResultStoreDto>> getStoresByDate(DateTime? searchDate)
-        {
-            // Convertir la fecha a UTC y calcular el rango del día
-            var dateOnly = searchDate.Value.Date;
-            var startOfDay = dateOnly.ToUniversalTime();
-            var endOfDay = startOfDay.AddDays(1);
-            // Imprimir los valores para depuración
-            Console.WriteLine($"Searching between: {startOfDay} and {endOfDay}");
-
+         {
+           
              var stores = await _context.Stores
   .Include(store => store.UserCreation) // Incluir el usuario de creación
   .Include(store => store.UserModification) // Incluir el usuario de modificación
-   .Where(z => z.CreationTime.Equals(dateOnly)) // Comparación por rango de fecha
+   .Where(z => z.CreationTime.Date ==searchDate.GetValueOrDefault().ToUniversalTime().Date) // Comparación por rango de fecha
   .Select(store => new ResultStoreDto
   {
       Id = store.Id,

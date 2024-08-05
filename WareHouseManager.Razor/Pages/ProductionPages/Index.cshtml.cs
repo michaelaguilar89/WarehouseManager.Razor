@@ -29,41 +29,63 @@ namespace WareHouseManager.Razor.Pages.ProductionPages
         }
 
         [BindProperty]
-        public List<ResultProductionDto> list { get; set; } = default;
+        public List<ResultProductionDto>? list { get; set; } = default;
         public string Messages { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string? search { get; set; }
-
+        [BindProperty(SupportsGet = true)]
+        public int records { get; set; } = 0;
+        [BindProperty(SupportsGet = true)]
         public DateTime? searchDate { get; set; }
 
         public async Task OnGetAsync(string? searchString, DateTime? searchDateValue)
         {
             try
             {
-                if (searchString!=null)
+
+                searchDate = searchDateValue;
+                search = searchString;
+                Console.WriteLine("Production Pages -Index : searchString : " + search + ", searchDate : " + searchDate);
+                if (search != null && searchDate.HasValue)
                 {
-                    search = searchString;
-                    list = await _productionService.GetProductionsByNameOrBatch(search);
+                    //list = await _productionService.GetProductionsByNameOrBatchAndDate(search, startDate.Value);
                 }
                 else
                 {
-                    list = await _productionService.GetProductions();
-                    Console.WriteLine("Date : " + DateTime.Now + "Consulta Ok en production index " + list.ToJson());
+                    if (searchDate.HasValue)
+                    {
+                        list = await _productionService.GetProductionsByDate(searchDate.Value);
+                    }
+                    else
+                    {
+                        if (search != null)
+                        {
+                            list = await _productionService.GetProductionsByNameOrBatch(search);
 
+                        }
+                        else 
+                        {
+                            list = await _productionService.GetProductions();
+                        }
+
+                    }
+                    
                 }
 
+               
+                
+              
+                Console.WriteLine("Date : " + DateTime.Now + ", Consulta OK en production index " + list.ToJson());
             }
             catch (Exception e)
             {
-
                 Messages = e.Message;
-                Console.WriteLine("Date : " + DateTime.Now + ",Error en Production-Index ,Error : " + e.Message);
-                
+                Console.WriteLine("Date : " + DateTime.Now + ", Error en Production-Index, Error: " + e.Message);
             }
-           
 
-            
+
+
         }
     }
 }

@@ -12,7 +12,7 @@
             {
                 <div class="text-danger">Status : @Model.Messages</div>
             }
-            <div class="searchData mx-auto 0">
+            <div class="searchData mx-auto">
                 <form asp-page="/ProductionPages/Index" method="get">
                     <p>
                         <input type="date" name="searchDateValue" value="@Model.searchDate" />
@@ -21,7 +21,6 @@
                         <a asp-page="/ProductionPages/Index">Back to full list</a>
                     </p>
                 </form>
-
             </div>
 
             @if (Model.list != null)
