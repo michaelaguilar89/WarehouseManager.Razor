@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +23,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Dockerfile",
+              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Dockerfile",
+              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Dockerfile",
+              "RelativeToolTip": "WareHouseManager.Razor\\Dockerfile",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-08-07T20:55:56.623Z",
+              "EditorCaption": ""
             }
           ]
         }
