@@ -1,0 +1,7 @@
+﻿[phases]
+build = "dotnet publish -c Release -o out"
+start = "dotnet out/MyApp.dll"
+
+[variables]
+ASPNETCORE_ENVIRONMENT = "Production"
+DOTNET_RUNNING_IN_CONTAINER = "true"
