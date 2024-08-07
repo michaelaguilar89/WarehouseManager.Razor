@@ -38,18 +38,18 @@ namespace WareHouseManager.Razor.Pages.StorePages
                 search = searchString;
                 Console.WriteLine("Store Pages -Index : searchString : " + search + ", searchDate : " + searchDate);
 
-                if (searchDate != null)
+                if (searchDate != null && search != null)
                  {
-                    
-                     result = await _storeService.getStoresByDate(searchDate);
+                    result = await _storeService.getStoresByNameOrBatchAndDate(searchString, searchDate);
+
                  }
                  else
                  {
-                     if (searchDateValue != null && search != null)
+                     if (searchDateValue != null )
                      {
-                       
-                         result = await _storeService.getStoresByNameOrBatchAndDate(searchString, searchDate);
-                     }
+
+                        result = await _storeService.getStoresByDate(searchDate);
+                    }
                      else
                      {
                          if (searchString != null)

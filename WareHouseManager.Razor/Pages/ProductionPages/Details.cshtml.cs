@@ -17,7 +17,7 @@ namespace WareHouseManager.Razor.Pages.ProductionPages
         [BindProperty(SupportsGet =true)]
         public int? Id { get; set; }
         [BindProperty]
-        public ResultProductionDto ProductionDto { get; set; }
+        public UpdateProductionDto ProductionDto { get; set; }
         public async Task<IActionResult> OnGet(int? id)
         {
             if (id != null)

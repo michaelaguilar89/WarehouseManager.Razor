@@ -6,13 +6,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 mx-auto 0">
-            <h3 class="text-center">list of Production  </h3>
+            <h3 class="text-center text-primary">List of Production( @Model.list.Count() )  </h3>
 
             @if (Model.Messages != null)
             {
                 <div class="text-danger">Status : @Model.Messages</div>
             }
-            <div class="searchData mx-auto">
+            <div class="searchData text-center pb-5 pt-3">
                 <form asp-page="/ProductionPages/Index" method="get">
                     <p>
                         <input type="date" name="searchDateValue" value="@Model.searchDate" />

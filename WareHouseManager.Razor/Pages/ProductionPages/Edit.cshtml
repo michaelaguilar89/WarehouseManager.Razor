@@ -3,11 +3,15 @@
 @{
 }
 <div class="row">
-    <div class="col-md-6 mx-auto 0">
-        <h3>Production Update</h3>
+    <div class="col-md-4 mx-auto 0">
+        <h3 class="text-center text-success">Production Update</h3>
+        @if (Model.Messages!=null)
+        {
+            <h3 class="text-danger">@Model.Messages</h3>
+        }
         @if (Model.productionDto != null)
         {
-            <form name="create" method="post">
+            <form name="create" class="text-center" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="productionDto.Id" type="hidden" />
                 <div class="form-group">
@@ -15,19 +19,25 @@
                     <input asp-for="productionDto.CreationTime" class="form-control" />
                     <span asp-validation-for="productionDto.CreationTime" class="text-danger"></span>
                 </div>
+               
+                   
+                <input asp-for="productionDto.StoreId" readonly="true" type="hidden" class="form-control" />
+              
+            
+                
                 <div class="form-group">
                     <label asp-for="productionDto.ProductName" class="control-label"></label>
-                    <input asp-for="productionDto.ProductName" class="form-control" />
+                    <input asp-for="productionDto.ProductName" readonly="true" class="form-control" />
                     <span asp-validation-for="productionDto.ProductName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="productionDto.Batch" class="control-label"></label>
-                    <input asp-for="productionDto.Batch" class="form-control" />
+                    <input asp-for="productionDto.Batch" readonly="true" class="form-control" />
                     <span asp-validation-for="productionDto.Batch" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="productionDto.Quantity" class="control-label"></label>
-                    <input asp-for="productionDto.Quantity" class="form-control" />
+                    <input asp-for="productionDto.Quantity" readonly="true" class="form-control" />
                     <span asp-validation-for="productionDto.Quantity" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -41,20 +51,37 @@
                     <span asp-validation-for="productionDto.FinalLevel" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    
+                    <input asp-for="productionDto.UserIdCreation" type="hidden" class="form-control" />
+                   
+                </div>
+                <div class="form-group">
+                    <label asp-for="productionDto.UserNameCreation" class="control-label"></label>
+                    <input asp-for="productionDto.UserNameCreation" class="form-control" />
+                    <span asp-validation-for="productionDto.UserNameCreation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <label asp-for="productionDto.Comments" class="control-label"></label>
                     <input asp-for="productionDto.Comments" class="form-control" />
                     <span asp-validation-for="productionDto.Comments" class="text-danger"></span>
                 </div>
+                <div class="form-group">
+                   
+                    <input asp-for="productionDto.UserIdModification" type="hidden" class="form-control" />
+                   
+                </div>
+                <div class="form-group">
+                    <label asp-for="productionDto.UserNameModification" class="control-label"></label>
+                    <input asp-for="productionDto.UserNameModification" class="form-control" />
+                    <span asp-validation-for="productionDto.UserNameModification" class="text-danger"></span>
+                </div>
                 <div class="form-group pt-3">
-                    <a href="/ProductionPages/Index" class="btn btn-secondary btn-lg mx-3">Go Back</a>
+                    <a href="javascript:history.back()" class="btn btn-success my-5">Go Back</a>
                     <input type="submit" class="btn btn-lg btn-primary mx-3" value="Save" />
                 </div>
             </form>
         }
-        else
-        {
-            <h3 class="text-danger text-center">@Model.Messages</h3>
-        }
+        
 
     </div>
 </div>

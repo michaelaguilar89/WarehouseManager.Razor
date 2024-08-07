@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using WareHouseManager.Razor.Data;
 using WareHouseManager.Razor.Models;
 
 namespace WareHouseManager.Razor.Areas.Identity.Pages.Account
@@ -28,6 +29,7 @@ namespace WareHouseManager.Razor.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
+        
         private readonly ILogger<RegisterModel> _logger;
        // private readonly IEmailSender _emailSender;
 
@@ -36,7 +38,8 @@ namespace WareHouseManager.Razor.Areas.Identity.Pages.Account
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger
-         //   IEmailSender emailSender
+           
+            //   IEmailSender emailSender
             )
         {
             _userManager = userManager;
@@ -115,16 +118,22 @@ namespace WareHouseManager.Razor.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-
+                
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                
                 var result = await _userManager.CreateAsync(user, Input.Password);
-
+                
                 if (result.Succeeded)
                 {
+                    var creationAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc);
+
+                    user.CreationTime = creationAt;
+                    await _userStore.UpdateAsync(user, CancellationToken.None);
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(

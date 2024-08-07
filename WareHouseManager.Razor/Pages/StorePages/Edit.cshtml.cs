@@ -84,13 +84,6 @@ namespace WareHouseManager.Razor.Pages.StorePages
                 Messages = resp;
                 return Page();
 
-           
-            Messages = "Cannot get data";
-            return Page();
-         
-
-                       
-
         }
 
         private string getSecret()

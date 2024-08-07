@@ -92,22 +92,34 @@ namespace WareHouseManager.Razor.Service
         {
             try
             {
-                Store store = new();
-                store.ProductNameHash = this.encryptedSevice.HashString(storeDto.ProductName);
-                store.ProductName = storeDto.ProductName;
-                store.BatchHash = this.encryptedSevice.HashString(storeDto.Batch);
-                store.Batch = storeDto.Batch;
-                store.TotalQuantity = storeDto.Quantity;
-                store.ActualQuantity = storeDto.Quantity;
-                store.CreationTime = DateTime.SpecifyKind(storeDto.CreationTime, DateTimeKind.Utc);
-                store.Description = storeDto.Description;
-                store.Comments = storeDto.Comments;
-                store.UserIdCreation = secret;
-                store.ModificationAt = null;
-              //  store.UserIdModification = secret;
-                await _context.Stores.AddAsync(store);
-                await _context.SaveChangesAsync();
-                return "1";
+                var BatchHash = this.encryptedSevice.HashString(storeDto.Batch);
+                var exist = await _context.Stores.FirstOrDefaultAsync(
+                    x => x.BatchHash.Equals(BatchHash)
+                    );
+                if (exist!=null)
+                {
+                    return "Wrong , Lote debe ser unico,ya existe!";
+                }
+                else
+                {
+                    Store store = new();
+                    store.ProductNameHash = this.encryptedSevice.HashString(storeDto.ProductName);
+                    store.ProductName = this.encryptedSevice.Protect(storeDto.ProductName);
+                    store.BatchHash = BatchHash;
+                    store.Batch = this.encryptedSevice.Protect(storeDto.Batch);
+                    store.TotalQuantity = storeDto.Quantity;
+                    store.ActualQuantity = storeDto.Quantity;
+                    store.CreationTime = DateTime.SpecifyKind(storeDto.CreationTime, DateTimeKind.Utc);
+                    store.Description = this.encryptedSevice.Protect(storeDto.Description);
+                    store.Comments = this.encryptedSevice.Protect(storeDto.Comments);
+                    store.UserIdCreation = secret;
+                    store.ModificationAt = null;
+                    //  store.UserIdModification = secret;
+                    await _context.Stores.AddAsync(store);
+                    await _context.SaveChangesAsync();
+                    return "1";
+                }
+                
             }
             catch (Exception e)
             {
@@ -148,22 +160,25 @@ namespace WareHouseManager.Razor.Service
         }
         public async Task<List<ResultStoreDto>> getStoresByNameOrBatchAndDate(string search,DateTime? searchDate)
         {
+            var searchingHah = this.encryptedSevice.HashString(search);
             var stores = await _context.Stores
   .Include(store => store.UserCreation) // Incluir el usuario de creación
   .Include(store => store.UserModification) // Incluir el usuario de modificación
-  .Where(z => z.CreationTime.Equals(searchDate) || z.ProductName.ToLower().Contains(search.ToLower()) ||
-         z.Batch.ToLower().Contains(search.ToLower()))
+  .Where(
+         z => z.CreationTime.Date == searchDate.GetValueOrDefault().ToUniversalTime().Date
+               && z.BatchHash.Equals(searchingHah)
+         )
   .Select(store => new ResultStoreDto
   {
       Id = store.Id,
-      ProductName = store.ProductName,
-      Batch = store.Batch,
+      ProductName = this.encryptedSevice.UnProtect(store.ProductName),
+      Batch = this.encryptedSevice.UnProtect(store.Batch),
       TotalQuantity = store.TotalQuantity,
       ActualQuantity = store.ActualQuantity,
       CreationTime = store.CreationTime,
       ModificationAt = store.ModificationAt,
-      Description = store.Description,
-      Comments = store.Comments,
+      Description = this.encryptedSevice.UnProtect(store.Description),
+      Comments = this.encryptedSevice.UnProtect(store.Comments),
       UserIdCreation = store.UserIdCreation,
       UserNameCreation = store.UserCreation != null ? store.UserCreation.UserName : "Unknown", // Manejo de potencial null
       UserIdModification = store.UserIdModification,
@@ -186,14 +201,14 @@ namespace WareHouseManager.Razor.Service
   .Select(store => new ResultStoreDto
   {
       Id = store.Id,
-      ProductName = store.ProductName,
-      Batch = store.Batch,
+      ProductName = this.encryptedSevice.UnProtect(store.ProductName),
+      Batch = this.encryptedSevice.UnProtect(store.Batch),
       TotalQuantity = store.TotalQuantity,
       ActualQuantity = store.ActualQuantity,
       CreationTime = store.CreationTime,
       ModificationAt = store.ModificationAt,
-      Description = store.Description,
-      Comments = store.Comments,
+      Description = this.encryptedSevice.UnProtect(store.Description),
+      Comments = this.encryptedSevice.UnProtect(store.Comments),
       UserIdCreation = store.UserIdCreation,
       UserNameCreation = store.UserCreation != null ? store.UserCreation.UserName : "Unknown", // Manejo de potencial null
       UserIdModification = store.UserIdModification,
@@ -211,26 +226,7 @@ namespace WareHouseManager.Razor.Service
         }
         public async Task<List<ResultStoreDto>> GetStoresWithUsernamesAsync()
         {
-           /* var stores = await (from store in _context.stores
-                                join userCreation in _context.Users on store.UserIdCreation equals userCreation.Id into uc
-                                from userCreation in uc.DefaultIfEmpty()
-                                join userModification in _context.Users on store.UserIdModification equals userModification.Id into um
-                                from userModification in um.DefaultIfEmpty()
-                                select new ResultStoreDto
-                                {
-                                    Id = store.Id,
-                                    ProductName = store.ProductName,
-                                    Batch = store.Batch,
-                                    Quantity = store.Quantity,
-                                    CreationTime = store.CreationTime,
-                                    ModificacionTime = store.ModificacionTime.Value,
-                                    Description = store.Description,
-                                    Comments = store.Comments,
-                                    UserIdCreation = store.UserIdCreation,
-                                    UserNameCreation = userCreation.UserName ,
-                                    UserIdModification = store.UserIdModification,
-                                    UserNameModification = userModification.UserName
-                                }).ToListAsync();*/
+          
             
              var stores = await _context.Stores
       .Include(store => store.UserCreation) // Incluir el usuario de creación
@@ -281,7 +277,7 @@ namespace WareHouseManager.Razor.Service
          .Select(store => new updateStoreDto
          {
              Id = store.Id,
-             ProductName = this.encryptedSevice.UnProtect(store.ProductName),
+             ProductName =this.encryptedSevice.UnProtect(store.ProductName),
              Batch = this.encryptedSevice.UnProtect(store.Batch),
              TotalQuantity = store.TotalQuantity,
              ActualQuantity = store.ActualQuantity,
@@ -289,7 +285,7 @@ namespace WareHouseManager.Razor.Service
              UpdateQuantity = 0,
              CreationTime = store.CreationTime,
              ModificacionTime = store.ModificationAt,
-             Description = this.encryptedSevice.UnProtect(store.Description),
+             Description =this.encryptedSevice.UnProtect( store.Description),
              Comments = this.encryptedSevice.UnProtect(store.Comments),
              UserIdCreation = store.UserIdCreation,
              UserNameCreation = store.UserCreation != null ? store.UserCreation.UserName : "Unknown",

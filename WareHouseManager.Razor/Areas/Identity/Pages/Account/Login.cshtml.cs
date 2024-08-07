@@ -115,7 +115,7 @@ namespace WareHouseManager.Razor.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("Date : "+DateTime.UtcNow+"User logged in : "+ Input.Email);
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -124,7 +124,7 @@ namespace WareHouseManager.Razor.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("Date :"+DateTime.UtcNow+ "User account locked out : " + Input.Email);
                     return RedirectToPage("./Lockout");
                 }
                 else

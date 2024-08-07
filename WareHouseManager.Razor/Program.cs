@@ -12,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 //builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -46,7 +48,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 
  * */
 
-// Configurar la sección de claves de protección de datos
+// Configurar la secciï¿½n de claves de protecciï¿½n de datos
 builder.Services.Configure<DataProtectionKeys>(
     builder.Configuration.GetSection("DataProtection:Keys"));
 
@@ -60,6 +62,8 @@ builder.Services.AddScoped<ProductionService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<EncryptedSevice>();
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 builder.Services.AddRazorPages();
 

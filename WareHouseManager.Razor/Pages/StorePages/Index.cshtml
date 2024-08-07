@@ -7,7 +7,7 @@
     <div class="row">
         <div class="row ">
             <div class="col-md-6 mx-auto 0">
-                <h3 class="text-center text-primary">List Of Products On Storage (  )</h3>
+                <h3 class="text-center text-primary">List Of Products On Storage ( @Model.result.Count()  )</h3>
             </div>
         </div>
         <div class="row">
@@ -18,7 +18,7 @@
                 }
             
 
-                 <div class="searchData mx-auto 0">
+                 <div class="searchData text-center p-3">
                         <form asp-page="/StorePages/Index" method="get">
                             <p>
                                 <input type="date" name="searchDateValue" value="@Model.searchDate" />

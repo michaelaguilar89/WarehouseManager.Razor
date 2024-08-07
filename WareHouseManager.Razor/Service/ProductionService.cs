@@ -19,7 +19,7 @@ namespace WareHouseManager.Razor.Service
         }
 
 
-        public async Task<ResultProductionDto> GetProductionsById(int? id)
+        public async Task<UpdateProductionDto> GetProductionsById(int? id)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace WareHouseManager.Razor.Service
                     .Include(user => user.UserCreation)//incluir el username create
                     .Include(user => user.UserModification)//incluir el username modification
                     .Where(x => x.Id == id)
-                    .Select(p => new ResultProductionDto
+                    .Select(p => new UpdateProductionDto
                     {
                         Id = p.Id,
                         ProductName = this.encryptedSevice.UnProtect(p.ProductName),
@@ -46,6 +46,7 @@ namespace WareHouseManager.Razor.Service
                         UserNameModification = p.UserModification.UserName != null ? p.UserModification.UserName : "Unknown" // Manejo de potencial null,
                       
                     }).FirstOrDefaultAsync();
+                Console.WriteLine("Date : " + DateTime.UtcNow + " StoreId : " + data.StoreId);
                 return data;
 
             }
@@ -322,6 +323,46 @@ namespace WareHouseManager.Razor.Service
                 // Rollback en caso de excepción
                 await transaction.RollbackAsync();
                 return e.Message;
+            }
+        }
+
+        public async Task<string> Update(UpdateProductionDto update,string secret)
+        {
+            try
+            {
+                var exist = await GetProductionsById(update.Id);
+                if (exist!=null)
+                {
+                    Production production = new();
+                    production.Id = update.Id;
+                    production.ProductName = this.encryptedSevice.Protect(update.ProductName);
+                    production.ProductNameHash = this.encryptedSevice.HashString(update.ProductName);
+                    production.Batch = this.encryptedSevice.Protect(update.Batch);
+                    production.BatchHash = this.encryptedSevice.HashString(update.Batch);
+                    production.StoreId = update.StoreId;
+                    production.Quantity = update.Quantity;
+                    production.Tank = this.encryptedSevice.Protect(update.Tank);
+                    production.FinalLevel = this.encryptedSevice.Protect(update.FinalLevel);
+                    production.CreationTime= DateTime.SpecifyKind(update.CreationTime, DateTimeKind.Utc);
+                    production.ModificacionTime= DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc);
+                    production.UserIdCreation = update.UserIdCreation;
+                    production.UserIdModification = secret;
+                    production.Comments = this.encryptedSevice.Protect(update.Comments);
+                    _context.Update(production);
+                    await _context.SaveChangesAsync();
+                    return "1";
+                }
+                else
+                {
+                    return "Not found!";
+                }
+                
+            }
+            catch (Exception e)
+            {
+
+               return e.Message;
+
             }
         }
     }

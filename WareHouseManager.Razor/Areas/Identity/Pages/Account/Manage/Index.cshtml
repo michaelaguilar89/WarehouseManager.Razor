@@ -1,0 +1,94 @@
+﻿@page
+@model IndexModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Microsoft.AspNetCore.Identity
+
+
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6 mx-auto 0">
+        <h3 class="text-center text-primary">My Profile</h3>
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" placeholder="Please choose your username." disabled />
+                <label asp-for="Input.Email" class="form-label"></label>
+            </div>
+            <!--
+                  <div class="form-floating mb-3">
+                <input asp-for="Input.CreationAt" class="form-control" placeholder="Please enter your phone number." />
+                <label asp-for="Input.CreationAt" class="form-label"></label>
+                <span asp-validation-for="Input.CreationAt" class="text-danger"></span>
+            </div>
+            -->
+          
+            <div class="form-floating mb-3">
+                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number."/>
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating text-center mb-3">
+                <a href="javascript:history.back()" class="m-3">Go Back</a>
+                <button id="update-profile-button" type="submit" class=" btn btn-lg btn-primary">Save</button>
+
+            </div>
+         </form>
+        <div class="container text-center p-3">
+                       
+                <a href="/Identity/Account/Manage/ChangePassword" class="m-3">Change my Password</a>
+            @if (User.IsInRole("Administrator"))
+            {
+                <a href="/Identity/Account/ResetPassword" class="m-3">Reset Other Password</a>
+                <a href="/RolesPages/CreateRol" class="m-3">Create Rol</a>
+                <a href="/RolesPages/AsignarRol" class="m-3">Asign Rol to User</a>
+
+            }
+               
+
+        
+        </div>
+        
+       
+    </div>
+    <div class="col-md-10 mx-auto 0">
+        <div class="container-list mx-auto 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">UserName</th>
+                        <th scope="col">CreationDate</th>
+                        <th scope="col">Phone Number</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @Model.users)
+                    {
+                        <tr>
+                            <th scope="row">@item.UserName</th>
+                            <td>@item.CreationTime</td>
+                            <td>@item.PhoneNumber</td>
+                           
+
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

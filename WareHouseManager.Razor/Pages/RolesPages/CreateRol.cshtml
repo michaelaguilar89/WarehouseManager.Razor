@@ -1,0 +1,23 @@
+﻿@page
+@model WareHouseManager.Razor.Pages.RolesPages.CreaateRolesModel
+@{
+}
+
+<div class="row">
+    <div class="col-lg-6 mx-auto 0">
+        <h2 class="text-center text-primary">Create Role</h2>
+
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="RoleName"></label>
+                <input asp-for="RoleName" class="form-control" />
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center pt-3">
+                <a href="javascript:history.back()" class="btn btn-success my-5">Go Back</a>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+           
+        </form>
+    </div>
+</div>
