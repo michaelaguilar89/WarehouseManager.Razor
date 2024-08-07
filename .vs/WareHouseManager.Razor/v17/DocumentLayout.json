@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\areas\\identity\\pages\\account\\manage\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\areas\\identity\\pages\\account\\manage\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\areas\\identity\\pages\\account\\manage\\changepassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\areas\\identity\\pages\\account\\manage\\changepassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,45 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-              "RelativeToolTip": "WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAAAA0AAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-07T01:50:44.726Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
-              "RelativeToolTip": "WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAQwD8AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T01:43:15.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChangePassword.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml.cs",
-              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml.cs",
-              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml.cs",
-              "RelativeToolTip": "WareHouseManager.Razor\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAAAC4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T01:42:33.701Z",
-              "EditorCaption": ""
             }
           ]
         }

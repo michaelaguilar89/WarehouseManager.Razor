@@ -1,6 +1,5 @@
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\WareHouseManager.Razor.exe
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
-C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\appsettings.json
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\WareHouseManager.Razor.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\WareHouseManager.Razor.deps.json
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\WareHouseManager.Razor.runtimeconfig.json
@@ -10,6 +9,7 @@ C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseMan
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Humanizer.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Identity.UI.dll

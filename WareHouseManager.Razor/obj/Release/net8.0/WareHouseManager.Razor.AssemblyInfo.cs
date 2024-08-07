@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WareHouseManager.Razor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97c51ea6c2cf25b5e6db81ff537171cac3331d6d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2191b84af889bd52325b22aeee52ce57f15bbe3")]
 [assembly: System.Reflection.AssemblyProductAttribute("WareHouseManager.Razor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WareHouseManager.Razor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

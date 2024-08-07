@@ -9,7 +9,6 @@ C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseMan
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Debug\net8.0\WareHouseManager.Razor.RazorAssemblyInfo.cs
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Debug\net8.0\WareHouseManager.Razor.sourcelink.json
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Debug\net8.0\appsettings.json
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Debug\net8.0\WareHouseManager.Razor.staticwebassets.runtime.json
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Debug\net8.0\WareHouseManager.Razor.exe
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Debug\net8.0\WareHouseManager.Razor.deps.json

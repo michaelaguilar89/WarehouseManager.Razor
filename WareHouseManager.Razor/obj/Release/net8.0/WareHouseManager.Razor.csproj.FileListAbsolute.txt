@@ -1,5 +1,4 @@
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\appsettings.Development.json
-C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\appsettings.json
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\WareHouseManager.Razor.staticwebassets.runtime.json
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\WareHouseManager.Razor.exe
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\WareHouseManager.Razor.deps.json
@@ -288,3 +287,4 @@ C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseMan
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\WareHouseManager.Razor.pdb
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\WareHouseManager.Razor.genruntimeconfig.cache
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\ref\WareHouseManager.Razor.dll
+C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll

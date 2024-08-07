@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2024-08-02T06:09:48.6538804Z||;</History>
+    <History>True|2024-08-07T12:09:05.4875354Z||;True|2024-08-02T00:09:48.6538804-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
