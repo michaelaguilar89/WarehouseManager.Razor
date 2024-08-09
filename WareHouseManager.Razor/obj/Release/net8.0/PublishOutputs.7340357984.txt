@@ -61,6 +61,8 @@ C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseMan
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Mono.TextTemplating.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Npgsql.dll
+C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\NuGet.Common.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\NuGet.Configuration.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\PubTmp\Out\NuGet.DependencyResolver.Core.dll

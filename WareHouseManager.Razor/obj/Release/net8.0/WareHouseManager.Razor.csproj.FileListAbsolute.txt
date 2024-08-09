@@ -262,3 +262,5 @@ C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseMan
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\obj\Release\net8.0\ref\WareHouseManager.Razor.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\appsettings.json
+C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\Npgsql.dll
+C:\Users\mchla\OneDrive\Documentos\Proyectos\WareHouseManager.Razor\WareHouseManager.Razor\bin\Release\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 using WareHouseManager.Razor.Data;
 using WareHouseManager.Razor.DataProtection;
 using WareHouseManager.Razor.Models;
@@ -11,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConection")));
 
 //builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -62,13 +63,37 @@ builder.Services.AddScoped<ProductionService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<EncryptedSevice>();
 
+
+
+
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
+/*
+// Ejecutar migraciones automáticamente
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
+    // Verifica si la base de datos contiene alguna tabla
+    if (!dbContext.Database.GetService<IRelationalDatabaseCreator>().HasTables())
+    {
+        // No hay tablas, se aplican las migraciones
+        dbContext.Database.Migrate();
+    }
+    else
+    {
+        // Si hay tablas, podrías verificar si están vacías o si hay migraciones pendientes
+        if (!dbContext.Users.Any() || dbContext.Database.GetPendingMigrations().Any())
+        {
+            dbContext.Database.Migrate();
+        }
+    }
+}
+*/
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
