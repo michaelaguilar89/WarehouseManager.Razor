@@ -45,7 +45,7 @@ namespace WareHouseManager.Razor.Models
         [ForeignKey("UserIdModification")]
         public ApplicationUser UserModification { get; set; }
         [ForeignKey("StoreId")]
-        public Store store { get; set; }
+        public Store Store { get; set; }
 
 
     }

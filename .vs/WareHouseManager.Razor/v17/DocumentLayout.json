@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\nixpacks.toml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\nixpacks.toml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|c:\\users\\mchla\\onedrive\\documentos\\proyectos\\warehousemanager.razor\\warehousemanager.razor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4A6A41D8-7B45-4B74-ACCB-0D96912E47A0}|WareHouseManager.Razor\\WareHouseManager.Razor.csproj|solutionrelative:warehousemanager.razor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,14 +31,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "nixpacks.toml",
-              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\nixpacks.toml",
-              "RelativeDocumentMoniker": "WareHouseManager.Razor\\nixpacks.toml",
-              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\nixpacks.toml",
-              "RelativeToolTip": "WareHouseManager.Razor\\nixpacks.toml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-08-07T21:31:47.239Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Program.cs",
+              "RelativeDocumentMoniker": "WareHouseManager.Razor\\Program.cs",
+              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\Program.cs",
+              "RelativeToolTip": "WareHouseManager.Razor\\Program.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAYwB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T17:00:09.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\appsettings.json",
+              "RelativeDocumentMoniker": "WareHouseManager.Razor\\appsettings.json",
+              "ToolTip": "C:\\Users\\mchla\\OneDrive\\Documentos\\Proyectos\\WareHouseManager.Razor\\WareHouseManager.Razor\\appsettings.json",
+              "RelativeToolTip": "WareHouseManager.Razor\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-07T21:59:55.828Z",
               "EditorCaption": ""
             }
           ]
